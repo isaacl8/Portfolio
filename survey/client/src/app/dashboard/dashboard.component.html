@@ -1,0 +1,27 @@
+<div class="dashboard">
+  <a [routerLink]="['/create']"><button type="button" class="btn btn-primary btn-sm">Create a New Poll</button></a>
+  <a [routerLink]="['/login']"><button type="button" class="btn btn-primary btn-sm">Logout</button></a>
+
+
+  <h1>Current Polls</h1>
+
+  <table class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <td>Name</td>
+        <td>Survey Question</td>
+        <td>Date Posted</td>
+        <td>Action</td>
+      </tr>
+    </thead>
+
+    <tr *ngFor="let question of questions">
+      <td>{{question._user.name}}</td>
+      <td><a [routerLink]="['/poll', question._id]">{{question.question}}</a></td>
+      <td>{{question.createdAt | date: 'medium'}}</td>
+      <div *ngIf="user == question._user._id">
+        <td><a (click)="Delete(question._id)"><button class="btn btn-danger btn-xs"> Delete </button></a> </td>
+      </div>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Isaacs Blog</title>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- jQuery nessasary for bootstraps javascript plugins -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- put in additional compiled plugins or other individual files -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+<!-- bootstrap only works if you have the above script tags -->
+<!-- look at doc to find diff ways to modify in bootstrap -->
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mynav">
+        <!-- span displays how many lines will be shown in button, have 3 cause it is standard for a button(hamburger) in dashboard -->
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!-- the link is being routed from the url pattern and going to home is th ename given for the url -->
+                <a class="navbar-brand" href="{% url 'home' %}">Isaac's Blog </a>
+            </div>
+            <div class="collapse navbar-collapse" id="mynav">
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="http://www.instagram.com/isaacl8" >Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<div class="container">
+    <h1 class="text-center">Welcome to Isaac's Blog!</h1>
+    {% load static %}
+    <img src="{% static 'posts/home.jpg' %}" class="img-responsive center-block" style='max-height:450px;' >
+
+    <h2>Latest Posts</h2>
+    <hr>
+    {% for post in post.all %}
+    <!-- relates with __str__ fxn in models-->
+    <!-- 'post_detail'is being called from the url pattern, having post.id along with the curlys to give it id to go to with the link -->
+    <a href="{% url 'post_detail' post.id %}"><h3>{{ post.title }}</h3></a>
+
+    <!-- relates with month_date fxn in models -->
+    <!-- this span creates the time icon -->
+    <h4>  <span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{ post.month_date }}
+    </h4> <br>
+    <!-- the image is where the url is stored -->
+    <!-- adding -responsive/-block after the image class makes it responsive/block the the img size when the size of the browser is modified -->
+    <!-- can add a class with in a class by using a space -->
+    <img src="{{ post.image.url }}" class="img-responsive center-block" style='max-height:200px;'>
+    <br>
+    <!-- relates with summary fxn in models -->
+    <p>{{ post.summary }}</p>
+
+    <br>
+    <br>
+
+
+    {% endfor %}
+</div>
+</body>
+
+</html>

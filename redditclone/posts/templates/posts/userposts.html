@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<!-- this allow there to be a connected html file that applies for all of them -->
+{% extends 'base.html' %} {% block content %}
+
+<head>
+    <meta charset="utf-8">
+    <title>Home</title>
+</head>
+
+<body>
+    <h1>All Posts by {{ author.username }} </h1>
+    <!-- a loop to print out the posts -->
+    {% for post in posts.all %}
+    <table>
+        <tr>
+            <!-- the span syntax is comming from bootstrap -->
+            <!-- used some javascript to use the logout, so what it is saying is when it is clicked it will run the form which is related by the id. also made the form hidden so would not show up -->
+            <td style="padding-right: 20px;"><a href="#" onClick="document.getElementById('upvote{{ post.id }}').submit()"><span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span></a><br> {{ post.votes_total }}<br><a href="#" onClick="document.getElementById('downvote{{ post.id }}').submit()"><span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a></td>
+            <td><a href="{{ post.url }}">{{ post.title }}</a><br>
+                <!-- these two print out the date and who posted it  -->
+                <!-- 'posts:userposts' post.author.id is with the views fxn -->
+                {{ post.month_date }} by <a href="{% url 'posts:userposts' post.author.id %}">{{ post.author.username }}</a></td>
+        </tr>
+
+        <br>
+    </table>
+    <!--  url 'posts:upvote'  is refering to the urls.py name of the app with the code of line 4 in posts/urls.py for the route also with the id of the post -->
+    <!-- form is sending info to the database using post  -->
+    <!-- will be sent to views.py upvote fxn -->
+    <form id="upvote{{ post.id }}" action="{% url 'posts:upvote' post.id %}" method="post">
+        {% csrf_token %}
+        <input type="hidden">
+    </form>
+    <!--  url 'posts:downvote'  is refering to the urls.py name of the app with the code of line 4 in posts/urls.py for the route also with the id of the post -->
+    <!-- form is sending info to the database using post  -->
+    <!-- will be sent to views.py downvote fxn -->
+    <form id="downvote{{ post.id }}" action="{% url 'posts:downvote' post.id %}" method="post">
+        {% csrf_token %}
+        <input type="hidden">
+    </form>
+
+    {% endfor %}
+
+</body>
+{% endblock %}
+
+</html>

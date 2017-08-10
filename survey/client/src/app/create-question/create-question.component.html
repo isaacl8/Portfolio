@@ -1,0 +1,31 @@
+<a [routerLink]="['/dashboard']"><button type="button" class="btn btn-primary btn-sm">Cancel</button></a>
+<h1>Put the question and options here:</h1>
+
+<form (submit)="createSubmit(formData)" #formData="ngForm">
+    <p>Question: <input type="text" name="question"[(ngModel)]="question.question" #question="ngModel" required minlength="8"></p>
+    <div *ngIf="question.errors && (question.dirty || question.touched)">
+          <p class="error" *ngIf="!question.errors.required">The question field is required</p>
+          <p class="error" *ngIf="!question.errors.minlength">The question must be at least 8 characters</p>
+    </div>
+    <p>Option 1: <input type="text" name="option1" [(ngModel)]="question.option1" #option1="ngModel" required minlength="3"></p>
+    <div *ngIf="option1.errors && (option1.dirty || option1.touched)">
+          <p class="error" *ngIf="!option1.errors.required">The option 1 field is required</p>
+          <p class="error" *ngIf="!option1.errors.minlength">The option 1 must be at least 3 characters</p>
+    </div>
+    <p>Option 2: <input type="text" name="option2" [(ngModel)]="question.option2" #option2="ngModel" required minlength="3"></p>
+    <div *ngIf="option2.errors && (option2.dirty || option2.touched)">
+          <p class="error" *ngIf="!option2.errors.required">The option 2 field is required</p>
+          <p class="error" *ngIf="!option2.errors.minlength">The option 2 must be at least 3 characters</p>
+    </div>
+    <p>Option 3: <input type="text" name="option3" [(ngModel)]="question.option3" #option3="ngModel" required minlength="3"></p>
+    <div *ngIf="option3.errors && (option3.dirty || option3.touched)">
+          <p class="error" *ngIf="!option3.errors.required">The option 3 field is required</p>
+          <p class="error" *ngIf="!option3.errors.minlength">The option 3 must be at least 3 characters</p>
+    </div>
+    <p>Option 4: <input type="text" name="option4" [(ngModel)]="question.option4" #option4="ngModel" required minlength="3"></p>
+    <div *ngIf="option4.errors && (option4.dirty || option4.touched)">
+          <p class="error" *ngIf="!option4.errors.required">The option 4 field is required</p>
+          <p class="error" *ngIf="!option4.errors.minlength">The option 4 must be at least 3 characters</p>
+    </div>
+    <input type="submit" name="createpoll" value="Create Poll">
+</form>

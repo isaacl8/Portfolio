@@ -1,0 +1,87 @@
+[
+{
+"id": 0,
+"name": "Hulk",
+"strength": 10,
+"intelligence": 7,
+"speed": 9
+},
+{
+"id": 1,
+"name": "Ironman",
+"strength": 7,
+"intelligence": 10,
+"speed": 6
+},
+{
+"id": 2,
+"name": "Black Widow",
+"strength": 5,
+"intelligence": 9,
+"speed": 7
+},
+{
+"id": 3,
+"name": "Quicksilver",
+"strength": 5,
+"intelligence": 6,
+"speed": 10
+},
+{
+"id": 4,
+"name": "Vison",
+"strength": 7,
+"intelligence": 8,
+"speed": 7
+},
+{
+"id": 5,
+"name": "Thor",
+"strength": 8,
+"intelligence": 7,
+"speed": 8
+},
+{
+"id": 6,
+"name": "Black Panther",
+"strength": 9,
+"intelligence": 9,
+"speed": 9
+},
+{
+"id": 7,
+"name": "Hawkeye",
+"strength": 5,
+"intelligence": 9,
+"speed": 7
+},
+{
+"id": 8,
+"name": "Fury",
+"strength": 5,
+"intelligence": 8,
+"speed": 8
+},
+{
+"id": 9,
+"name": "Scarlet Witch",
+"strength": 10,
+"intelligence": 9,
+"speed": 7
+},
+{
+"id": 10,
+"name": "Thor",
+"strength": 10,
+"intelligence": 9,
+"speed": 8
+},
+{
+"id": 11,
+"name": "Spider-man",
+"strength": 10,
+"intelligence": 9,
+"speed": 9
+}
+
+]

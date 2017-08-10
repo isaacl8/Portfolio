@@ -1,0 +1,39 @@
+<!-- I will actuallly need to have a method to grab the particular questionation coming from the component to the service to the routes to the controller to the db with a findOne. -->
+<a [routerLink]="['/dashboard']"> <button type="button" class="btn btn-primary btn-sm">Go to Polls</button></a>
+<br>
+<br>
+<div *ngFor="let question of questions">
+    <h1>{{question.question}}</h1>
+</div>
+
+<h3>Click the Vote button to vote:</h3>
+<table class="table" >
+    <thead class="thead-inverse" >
+        <tr>
+        <td>Option</td>
+        <td>Current Count of Votes</td>
+        <td>Action</td>
+    </tr>
+    </thead>
+
+        <tr *ngFor="let question of questions" >
+            <td>{{question.option1}}</td>
+            <td>{{question.vote1}}</td>
+            <td><button (click)="upVote1(question._id)" class="btn btn-success">Vote</button></td>
+        </tr>
+        <tr *ngFor="let question of questions" >
+            <td>{{question.option2}}</td>
+            <td>{{question.vote2}}</td>
+            <td><button (click)="upVote2(question._id)" class="btn btn-success">Vote</button></td>
+        </tr>
+        <tr *ngFor="let question of questions" >
+            <td>{{question.option3}}</td>
+            <td>{{question.vote3}}</td>
+            <td><button (click)="upVote3(question._id)" class="btn btn-success">Vote</button></td>
+        </tr>
+        <tr *ngFor="let question of questions" >
+            <td>{{question.option4}}</td>
+            <td>{{question.vote4}}</td>
+            <td><button (click)="upVote4(question._id)" class="btn btn-success">Vote</button></td>
+        </tr>
+</table>

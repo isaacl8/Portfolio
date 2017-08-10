@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<!-- this allow there to be a connected html file that applies for all of them -->
+{% extends 'base.html' %}
+{% block content %}
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <h1>Sign Up!</h1>
+    <!-- this is beingv used to show errors -->
+    {% if error %}
+    {{ error }}
+    <br>
+    <!-- added another break cause there wasn't enough space btwn the error message and the form -->
+    <br>
+    {% endif %}
+
+        <!--  url 'signup'  is refering to the urls.py name for the route -->
+        <!-- form is sending info to the database using post  -->
+        <form class="" action="{% url 'accounts:signup' %}" method="post">
+            <!-- this line of code allows us to submit/use the form -->
+            {% csrf_token %}
+            Username:
+            <br>
+            <input type="text" name="username">
+            <br>
+            Password:
+            <br>
+            <input type="password" name="password1">
+            <br>
+            Confirm Password:
+            <br>
+            <input type="password" name="password2" >
+            <br>
+            <br>
+            <input class="btn btn-primary" type="submit" value="Sign Up!">
+        </form>
+    </body>
+    {% endblock %}
+</html>

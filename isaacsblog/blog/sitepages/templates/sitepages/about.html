@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Isaacs Blog</title>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- jQuery nessasary for bootstraps javascript plugins -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- put in additional compiled plugins or other individual files -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+<!-- bootstrap only works if you have the above script tags -->
+<!-- look at doc to find diff ways to modify in bootstrap -->
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mynav">
+        <!-- span displays how many lines will be shown in button, have 3 cause it is standard for a button(hamburger) in dashboard -->
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!-- the link is being routed from the url pattern and going to home is th ename given for the url -->
+                <a class="navbar-brand" href="{% url 'home' %}">Isaac's Blog </a>
+            </div>
+            <div class="collapse navbar-collapse" id="mynav">
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="http://www.instagram.com/isaacl8" >Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<div class="container">
+    <h1>About</h1>
+    
+    <h3>Who is Isaac?</h3>
+    <p>Isaac is a hard working person who has a love hate relationship with problems.</p>
+
+</div>
+</body>
+
+</html>
